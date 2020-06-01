@@ -1,4 +1,9 @@
+const webpack = require("webpack");
+
 module.exports = {
   lintOnSave: false,
-  transpileDependencies: ["vuetify"]
+  transpileDependencies: ["electron", "vuetify"],
+  configureWebpack: {
+    plugins: [new webpack.ExternalsPlugin("commonjs", ["electron"])]
+  }
 };
