@@ -5,19 +5,62 @@
     </v-app-bar>
 
     <v-content>
-      <Home />
+      <v-container fluid>
+        <v-form>
+          <v-file-input
+            label="Selecione as Legendas"
+            prepend-icon="mdi-message-text"
+            append-outer-icon="mdi-send"
+            outlined
+            multiple
+            chips
+            v-model="files"
+            @click:append-outer="processSubtitles"
+          ></v-file-input>
+        </v-form>
+        <div class="pills">
+          <Pill
+            v-for="word in groupeWords"
+            :key="word.name"
+            :name="word.name"
+            :amount="word.amount"
+          />
+        </div>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Home from "./components/Home";
+import Pill from "@/components/Pill";
+import { ipcRenderer } from "electron";
 
 export default {
   name: "App",
   components: {
-    Home
+    Pill
   },
-  data: () => ({})
+  data: () => ({
+    files: [],
+    groupeWords: []
+  }),
+  methods: {
+    processSubtitles() {
+      const paths = this.files.map(file => file.path);
+
+      ipcRenderer.send("process-subtitles", paths);
+      ipcRenderer.on("process-subtitles", (event, words) => {
+        this.groupeWords = words;
+      });
+    }
+  }
 };
 </script>
+
+<style lang="css">
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+</style>
