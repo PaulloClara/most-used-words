@@ -1,30 +1,18 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <v-toolbar-title>Most Used Words</v-toolbar-title>
-    </v-app-bar>
+    <c-app-bar></c-app-bar>
 
     <v-content>
       <v-container fluid>
-        <v-form>
-          <v-file-input
-            label="Selecione as Legendas"
-            prepend-icon="mdi-message-text"
-            append-outer-icon="mdi-send"
-            outlined
-            multiple
-            chips
-            v-model="files"
-            @click:append-outer="processSubtitles"
-          ></v-file-input>
-        </v-form>
+        <c-file-input v-model="files" @send="processSubtitles"></c-file-input>
+
         <div class="pills">
-          <Pill
+          <c-pill
             v-for="word in groupeWords"
             :key="word.name"
             :name="word.name"
             :amount="word.amount"
-          />
+          ></c-pill>
         </div>
       </v-container>
     </v-content>
@@ -33,12 +21,17 @@
 
 <script>
 import Pill from "@/components/Pill";
+import AppBar from "@/components/AppBar";
+import FileInput from "@/components/FileInput";
+
 import { ipcRenderer } from "electron";
 
 export default {
   name: "App",
   components: {
-    Pill
+    "c-pill": Pill,
+    "c-app-bar": AppBar,
+    "c-file-input": FileInput
   },
   data: () => ({
     files: [],

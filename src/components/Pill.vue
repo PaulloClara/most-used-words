@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="pill">
+  <div class="c-pill">
     <span class="name">{{ name }}</span>
     <span class="amount">{{ amount }}</span>
   </div>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="css">
-.pill {
+.c-pill {
   margin: 10px;
   height: 55px;
   border-radius: 30px;
@@ -26,11 +26,11 @@ export default {
   align-items: center;
 }
 
-.pill .name {
+.c-pill .name {
   margin-left: 15px;
 }
 
-.pill .amount {
+.c-pill .amount {
   margin: 10px;
   padding: 5px;
   height: 35px;
