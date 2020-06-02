@@ -51,6 +51,11 @@ export default {
 </script>
 
 <style lang="css">
+:root {
+  --primary: #dc143c;
+  --secondary: #fff;
+}
+
 .pills {
   display: flex;
   flex-wrap: wrap;

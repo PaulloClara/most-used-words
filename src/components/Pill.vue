@@ -14,34 +14,39 @@ export default {
 
 <style lang="css">
 .c-pill {
-  margin: 10px;
-  height: 55px;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: bold;
-  background-color: #dc143c;
-
   display: flex;
   align-items: center;
+
+  height: 48px;
+  margin: 8px 4px;
+
+  border-radius: 32px;
+
+  color: var(--secondary);
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  background-color: var(--primary);
 }
 
 .c-pill .name {
-  margin-left: 15px;
+  margin-left: 16px;
 }
 
 .c-pill .amount {
-  margin: 10px;
-  padding: 5px;
-  height: 35px;
-  width: 35px;
-  border-radius: 18px;
-
-  background-color: #fff;
-  color: #dc143c;
-
-  font-size: 14px;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  margin: 8px;
+  border-radius: 18px;
+
+  color: var(--primary);
+  font-size: 14px;
+
+  background-color: var(--secondary);
 }
 </style>
