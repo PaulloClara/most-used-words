@@ -1,11 +1,12 @@
 "use strict";
 
-import "./backend";
 import { app, protocol, BrowserWindow } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 
-let win;
+import "./app";
 import packageJSON from "../package.json";
+
+let win;
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 protocol.registerSchemesAsPrivileged([
