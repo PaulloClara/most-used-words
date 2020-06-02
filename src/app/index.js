@@ -1,14 +1,13 @@
 const { ipcMain } = require("electron");
 
-const pathsToRows = require("./pathsToRows");
-const prepareData = require("./prepareData");
+const pipe = require("./pipeline");
 const groupWords = require("./groupWords");
+const prepareData = require("./prepareData");
+const pathsToRows = require("./pathsToRows");
 
-ipcMain.on("process-subtitles", (event, paths) => {
-  pathsToRows(paths)
-    .then(rows => prepareData(rows))
-    .then(words => groupWords(words))
-    .then(groupedWords => {
-      event.reply("process-subtitles", groupedWords);
-    });
+ipcMain.on("process-subtitles", async function(event, paths) {
+  event.reply(
+    "process-subtitles",
+    await pipe(paths).toAsync(pathsToRows, prepareData, groupWords)
+  );
 });
