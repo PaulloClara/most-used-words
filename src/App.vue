@@ -4,11 +4,11 @@
 
     <v-content>
       <v-container fluid>
-        <c-file-input v-model="files" @send="processSubtitles"></c-file-input>
+        <c-file-input v-model="files" @send="handleFileInput"></c-file-input>
 
         <div class="pills">
           <c-pill
-            v-for="word in groupeWords"
+            v-for="word in words"
             :key="word.name"
             :name="word.name"
             :amount="word.amount"
@@ -20,11 +20,11 @@
 </template>
 
 <script>
+import { ipcRenderer } from "electron";
+
 import Pill from "@/components/Pill";
 import AppBar from "@/components/AppBar";
 import FileInput from "@/components/FileInput";
-
-import { ipcRenderer } from "electron";
 
 export default {
   name: "App",
@@ -35,15 +35,15 @@ export default {
   },
   data: () => ({
     files: [],
-    groupeWords: []
+    words: []
   }),
   methods: {
-    processSubtitles() {
+    handleFileInput() {
       const paths = this.files.map(file => file.path);
 
       ipcRenderer.send("process-subtitles", paths);
       ipcRenderer.on("process-subtitles", (event, words) => {
-        this.groupeWords = words;
+        this.words = words;
       });
     }
   }

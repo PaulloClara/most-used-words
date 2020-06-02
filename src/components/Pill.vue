@@ -8,7 +8,16 @@
 <script>
 export default {
   name: "Pill",
-  props: ["name", "amount"]
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    amount: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
 
