@@ -2,6 +2,8 @@
 
 > Word analyzer in subtitles srt.
 
+![demo](.github/demo.gif "demov0.1")
+
 ## Tecs
 
 - [VueJS](https://vuejs.org) - The progressive JavaScript framework.
