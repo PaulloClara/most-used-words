@@ -1,24 +1,13 @@
-# most-used-words
+# Most Used Words
 
-## Project setup
-```
-yarn install
-```
+> Word analyzer in subtitles srt.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Tecs
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- [VueJS](https://vuejs.org) - The progressive JavaScript framework.
+- [VuetifyJS](https://vuetifyjs.com/en) - Vue UI Library with beautifully handcrafted Material Components.
+- [ElectronJS](https://www.electronjs.org) - Build cross platform desktop apps with JavaScript, HTML, and CSS.
 
-### Lints and fixes files
-```
-yarn lint
-```
+### Credits
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Initial idea and code: [cod3rcursos](https://github.com/cod3rcursos).
