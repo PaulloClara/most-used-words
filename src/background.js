@@ -2,9 +2,7 @@
 
 import { app, protocol, BrowserWindow } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
-
 import "./app";
-import packageJSON from "../package.json";
 
 let win;
 const isDevelopment = process.env.NODE_ENV !== "production";
@@ -17,12 +15,12 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    titleBarStyle: "hidden",
+    icon: "./src/assets/icon.png",
     webPreferences: {
       nodeIntegration: true
     }
   });
-
-  win.setTitle(packageJSON.title);
 
   if (process.env.WEBPACK_DEV_SERVER_URL)
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
@@ -30,10 +28,6 @@ function createWindow() {
     createProtocol("app");
     win.loadURL("app://./index.html");
   }
-
-  win.webContents.on("did-finish-load", () => {
-    win.setTitle(packageJSON.title);
-  });
 
   win.on("closed", () => {
     win = null;
