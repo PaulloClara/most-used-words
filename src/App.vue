@@ -3,7 +3,7 @@
     <c-app-bar></c-app-bar>
 
     <v-content>
-      <v-container fluid>
+      <v-container class="v-container" fluid>
         <c-file-input v-model="files" @send="handleFileInput"></c-file-input>
 
         <div class="pills">
@@ -54,6 +54,15 @@ export default {
 :root {
   --primary: #dc143c;
   --secondary: #fff;
+}
+
+html {
+  overflow-y: hidden !important;
+}
+
+.v-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 48px); /* total app height - appbar */
 }
 
 .pills {
