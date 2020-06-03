@@ -1,4 +1,4 @@
-const pipe = require("./pipeline");
+const pipe = require("pipe-to");
 
 function removeCarriageReturn(rows) {
   return rows.map(row => row.replace(/\r/g, ""));

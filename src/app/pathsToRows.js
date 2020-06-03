@@ -1,5 +1,5 @@
 const fs = require("fs");
-const pipe = require("./pipeline");
+const pipe = require("pipe-to");
 
 // Input: ['/path/to/subtitle1.srt', '/path/to/subtitle2.srt']
 // Output: ['row1 + row2', 'row1 + row2']

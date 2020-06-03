@@ -1,4 +1,4 @@
-const pipe = require("./pipeline");
+const pipe = require("pipe-to");
 
 // Input: ['you', 'i', 'he', 'i']
 // Output: [{you: 1}, {i: 2}, {he: 1}]
