@@ -3,6 +3,7 @@
   "title": "Most Used Words",
   "main": "background.js",
   "version": "0.1.0",
+  "description": "Word analyzer in subtitles srt",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service electron:serve",
