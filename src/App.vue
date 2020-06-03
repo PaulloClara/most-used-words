@@ -60,6 +60,18 @@ html {
   overflow-y: hidden !important;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
 .v-container {
   overflow-y: auto;
   max-height: calc(100vh - 48px); /* total app height - appbar */
