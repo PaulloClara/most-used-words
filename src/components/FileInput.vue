@@ -1,7 +1,7 @@
 <template lang="html">
   <v-form class="c-file-input">
     <v-file-input
-      label="Selecione as Legendas"
+      label="Select Subtitles"
       prepend-icon="mdi-message-text"
       append-outer-icon="mdi-send"
       outlined
