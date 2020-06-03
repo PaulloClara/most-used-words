@@ -16,6 +16,7 @@ function createWindow() {
     width: 800,
     height: 600,
     titleBarStyle: "hidden",
+    autoHideMenuBar: true,
     icon: "./src/assets/icon.png",
     webPreferences: {
       nodeIntegration: true
